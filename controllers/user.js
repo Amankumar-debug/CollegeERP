@@ -14,11 +14,11 @@ module.exports.signupForm=(req,res)=>{
 module.exports.signup=async(req,res)=>{
     try {
         let{username,email,registration_no,password,role}=req.body;
-    let user=await Student.findOne({registration_no:registration_no});
-    if(!user){
-        req.flash("error","Wrong Registration No! Please enter correct Registration No")
-        return res.redirect("/signup");
-    }
+    // let user=await Student.findOne({registration_no:registration_no});
+    // if(!user){
+    //     req.flash("error","Wrong Registration No! Please enter correct Registration No")
+    //     return res.redirect("/signup");
+    // }
     let newUser=new User({email,username,registration_no,role});
     let registeredUser=await User.register(newUser,password);
     req.logIn(registeredUser,(err)=>{
