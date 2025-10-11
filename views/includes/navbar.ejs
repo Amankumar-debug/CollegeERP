@@ -1,0 +1,43 @@
+<style>
+  .img1{
+    height: 50px;
+    width: 50px;
+    border-radius: 40px;
+   margin-right: 7px;
+  }
+  .container-fluid{
+    display: flex;
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top ">
+  <%if(currUser){%>
+  <div class="container-fluid">
+    <img class="img1" src="https://img.freepik.com/premium-vector/vector-flat-illustration-grayscale-avatar-user-profile-person-icon-profile-picture-business-profile-woman-suitable-social-media-profiles-icons-screensavers-as-templatex9_719432-1351.jpg?semt=ais_hybrid&w=740&q=80">
+    <a class="navbar-brand" href="/college"><%=currUser.username%></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+      
+        <%if(currUser.role=="Admin"){%>
+           <a class="nav-link active navbar-brand" aria-current="page" href="/student/add">Add Student</a>
+        <a class="nav-link navbar-brand" href="/student/showAll">Student Details</a>
+        <a class="nav-link navbar-brand" href="/staff/add">Add Staff</a>
+        <a class="nav-link navbar-brand" href="/staff/showAll" >Staff Details</a>
+        <a class="nav-link navbar-brand" href="/student/fees" >Fees</a>
+        <a class="nav-link navbar-brand" href="/student/addfeesconferm" >Add Fees</a>
+        <%}%>
+        <%if(currUser.role=="student"){%>
+          <a class="nav-link active navbar-brand" aria-current="page" href="/student/result">Result</a>
+        <a class="nav-link navbar-brand" href="/student/faculty">Faculty</a>
+        <%}%>
+      </div>
+    </div>
+    <div>
+        <a class="nav-link navbar-brand " href="/logout" >logout</a>
+        </div>
+  </div>
+</nav>
+<%}%>

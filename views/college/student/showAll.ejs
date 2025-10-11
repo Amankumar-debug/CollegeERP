@@ -1,0 +1,151 @@
+<% layout ("/layouts/boilerplate.ejs") %>
+<style>
+    .details{
+        width: 900px;
+        padding-right: 2rem;
+        flex: 1;
+    overflow: auto;
+     border-radius: 1rem;
+    }
+    .search{
+       
+        width: 330px;
+        height: 400px;
+        margin-left: 3rem;
+    }
+    .dibba{
+        display: flex;
+        height: 100vh;
+         overflow: hidden;
+    }
+    .student{
+        display: flex;
+    }
+    .img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: .5rem;
+    }
+    .buttons{
+      display: flex;
+    }
+    .student-title{
+      display: flex;
+      justify-content: space-between;
+    }
+    .filters{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .filter{
+      text-decoration: none;
+      color:black;
+      font-weight: 500;
+      font-size: 20px;
+     
+    }
+</style>
+<div class="filters">
+<a href="/student/search?course=BCA" class="filter">
+  <p>BCA</p>
+</a>
+<a href="/student/search?course=B.Sc" class="filter">
+  <p>B.Sc</p>
+</a>
+<a href="/student/search?course=B.Ed" class="filter">
+  <p>B.Ed</p>
+</a>
+<a href="/student/search?course=BA" class="filter">
+  <p>BA</p>
+</a>
+<a href="/student/search?course=BBA" class="filter">
+  <p>BBA</p>
+<a href="/student/search?course=B.Com" class="filter">
+  <p>B.Com</p>
+</a>
+<a href="/student/search?course=B.Com(Honours)" class="filter">
+  <p>B.Com(Honours)</p>
+</a>
+<a href="/student/search?course=B.Com(Biotechnology)" class="filter">
+  <p>B.Sc(Biotechnology)</p>
+</a>
+<a href="/student/search?course=B.Sc(Mathematics)" class="filter">
+  <p>B.Sc(Mathematics)</p>
+</a>
+<a href="/student/search?course=B.Sc(Microbiology)" class="filter">
+  <p>B.Sc(Microbiology)</p>
+</a>
+
+</div>
+<div class="dibba mt-3 ">
+    <div class="details">
+<% for(let student of allStudent){%>
+  <%if(currUser && currUser._id.equals(student.owner._id)){%>
+  <div class=" mb-3 mt-3 mb-sm-0 ">
+    <div class="card ">
+        <div class="student">
+        <div class="img">
+        <img src="<%= student.image.url %>" class="card-img-top" alt="image" style="height: 130px; width: 130px;">
+        </div>
+      <div class="card-body ">
+        <div class="student-title">
+        <h5 class="card-title "><%= student.registration_no %></h5>
+             <h5><%= student.course %> -<%= student.semester %></h5>
+             </div>
+        <p class="card-text"><%= student.name%>&nbsp; S/O&nbsp; <%= student.father_name %></5></p>
+        <div class="buttons" >
+        <form method="get" action="/student/<%=student._id%>/edit">
+          <button class="btn btn-primary">Edit</button>
+        </form>
+        <!-- <form method="get" action="/student/showOne/<%=student._id%>">
+          <button class="btn btn-secondary">See Details</button>
+        </form> -->
+        <a href="/student/showOne/<%=student._id%>" class="btn btn-secondary" style="margin-left: 1rem; width: 7rem;">See Details  </a>
+        <form method="post" action="/student/<%=student._id%>?_method=DELETE ">
+          <button class="btn btn-danger" style="margin-left: 26rem;">Delete</button>
+        </form>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <%}%>
+<%}%>
+</div>
+<!-- <div class="search">
+  <div class="card p-3 shadow-sm">
+        <h5 class="mb-3">Search Student</h5>
+        <input
+          type="text"
+          id="searchInput"
+          class="form-control"
+          placeholder="Enter name "
+        />
+        <input type="text" class="form-control" placeholder="Father's Name">
+        <input type="text" class="form-control" placeholder="Course">
+
+      </div>
+</div>-->
+<div class="card p-3 mt-3" style="width: 25rem; height:300px;"> 
+  <h5 class="mb-3">Search Student</h5>
+  <form action="/student/search" method="get">
+    <div class="form-group mb-2">
+      <input type="text" name="name" class="form-control" placeholder="Enter name">
+    </div>
+    <div class="form-group mb-2">
+      <input type="text" name="father_name" class="form-control" placeholder="Father's Name">
+    </div>
+    <div class="form-group mb-2">
+      <input type="text" name="course" class="form-control" placeholder="Course">
+    </div>
+    <div class="form-group mb-3">
+      <input type="number" name="semester" class="form-control" placeholder="Semester">
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Search</button>
+  </form>
+</div>
+</div>
+
+

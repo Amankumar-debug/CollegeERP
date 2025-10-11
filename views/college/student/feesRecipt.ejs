@@ -1,0 +1,160 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<style>
+  body {
+    font-family: "Times New Roman", serif;
+    margin: 0; 
+    background: #f9f9f9;
+  }
+  .receipt-wrapper {
+    margin: 100px auto;
+    margin-bottom: 20px;  
+    width: 650px;
+    border: 1px solid #000;
+    padding: 30px;
+    background: #fff;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 0;
+    letter-spacing: 2px;
+  }
+
+  h4 {
+    text-align: center;
+    margin-top: 5px;
+    font-weight: normal;
+  }
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+ 
+
+  .details {
+    margin-top: 10px;
+    font-size: 15px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 15px;
+  }
+
+  th,
+  td {
+    border: 1px solid #000;
+    padding: 6px;
+    text-align: left;
+  }
+
+  .no-border td {
+    border: none;
+  }
+
+  .right {
+    text-align: right;
+  }
+
+  .signature {
+    text-align: right;
+    margin-top: 30px;
+    font-style: italic;
+  }
+
+  .footer {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 25px;
+  }
+  .print{
+    margin-left: 20rem;
+    margin-bottom: 30px;
+  }
+  .college{
+    letter-spacing: 8px;
+  }
+</style>
+
+<div class="receipt-wrapper">
+  <h2 class="college"><%=student.college%></h2>
+  <h4>AGRA ROAD, ALIGARH</h4>
+  <p >ORIGINAL</p>
+
+  <div class="details">
+    <div class="top">
+      <span><b>Rec. No:</b> 49882</span>
+      <span><b>Session:</b> 2025</span>
+    </div>
+
+    <div class="top">
+      <span style="width: 13rem; display: flex;"><b>Date: </b> <p>  <%= student.created_at.toString().split(" ").slice(0,4).join(" ") %></p></span>
+      <span ><b>Registration No: </b><%=student.registration_no%></span>
+    </div>
+
+    <p><b>Course:</b> <%=student.course%></p>
+    <p><b>Student's Name:</b><%=student.name%></p>
+    <p><b>Father's Name:</b> <%=student.father_name%></p>
+    <p><b>Sem/Year:</b> <%=student.semester%></p>
+    <p><b>Address:</b><%=student.address%></p>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Particulars</th>
+        <th>Fee Amount (In Rs)</th>
+</tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Tuition Fee</td>
+        <td class="right"><%=addfees%>/-</td>
+      </tr>
+      <%if(student.fees==0){%>
+      <tr>
+        <td>Computer Fee</td>
+        <td class="right">500/-</td>
+      </tr>
+      <tr>
+        <td>Examination Fee</td>
+        <td class="right">1500/-</td>
+      </tr>
+      <tr>
+        <td><b>Total</b></td>
+        <td class="right"><b><%=totalfees%>/-</b></td>
+      </tr>
+      <tr>
+        <td><b>Concession Fee</b></td>
+        <td class="right">2000/-</td>
+      </tr>
+      <tr>
+        <%}%>
+        <td><b>Net Total</b></td>
+        <td class="right"><b><%=addfees%>/-</b></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+  <div class="signature">
+    <p>Signature</p>
+  </div>
+
+  <div class="footer">
+    <p>All Fee Receipt are non-refundable and non-transferable</p>
+  </div>
+</div>
+
+
+<div class="print">
+    <a href="/student/fees">
+    <button class="btn btn-primary">Print</button>
+    </a>
+</div>

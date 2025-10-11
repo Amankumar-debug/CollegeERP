@@ -1,0 +1,175 @@
+<% layout ("/layouts/boilerplate.ejs") %>
+
+<style>
+    .details{
+        height: 600px;
+        width: 900px;
+        padding-right: 2rem;
+        flex: 1;
+    overflow: auto;
+     border-radius: 1rem;
+     margin-right: 2rem;
+     border: 1px solid black;
+    }
+    .search{
+       
+        width: 330px;
+        height: 400px;
+        margin-left: 3rem;
+    }
+    .dibba{
+        display: flex;
+         overflow: hidden;
+    }
+    .student{
+        display: flex;
+    }
+    .img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: .5rem;
+    }
+    .buttons{
+      display: flex;
+    }
+    .student-title{
+      display: flex;
+      justify-content: space-between;
+    }
+</style>
+
+
+<div class="dibba mt-3 ">
+    <div class="details">
+     
+<div class="row">
+  <div class="col-10 offset-1 mt-3">
+    <form novalidate class="needs-validation" method="post" action="/student/<%=student._id%>/submitFees" >
+
+      <div class="row g-3 align-items-start mb-3">
+        <div class="col-md-9">
+          <!-- Registration No -->
+          <div class="row align-items-center mb-3">
+            <div class="col-3">
+              <label for="reg-no" class="col-form-label">Registration No:</label>
+            </div>
+            <div class="col-9">
+              <input type="text"  value="<%=student.registration_no%>" id="reg-no" class="form-control" placeholder="ex-RMPU1234" disabled>
+            </div>
+          </div>
+
+          <!-- Name -->
+          <div class="row align-items-center mb-3">
+            <div class="col-3">
+              <label for="name" class="col-form-label">Name:</label>
+            </div>
+            <div class="col-9">
+              <input type="text"  value="<%=student.name%>" id="name" class="form-control" placeholder="ex-Aman Kumar" disabled>
+            </div>
+          </div>
+
+          <!-- Father's Name -->
+          <div class="row align-items-center mb-3">
+            <div class="col-3">
+              <label for="fa-name" class="col-form-label">Father's Name:</label>
+            </div>
+            <div class="col-9">
+              <input type="text"  value="<%=student.father_name%>" id="fa-name" class="form-control" placeholder="ex-Anil Kumar" disabled>
+            </div>
+          </div>
+        </div>
+
+        <!-- 📸 Photo Upload Section (3-row height) -->
+        <!-- <div class="col-md-4 text-center photo-box">
+          <label for="photo" class="form-label fw-bold">Upload Photo:</label>
+          <input type="file" name="student[image]" id="photo" class="form-control mb-2"  >
+          <img id="preview" src="https://hancockogundiyapartners.com/wp-content/uploads/2019/07/dummy-profile-pic-300x300.jpg" alt="Photo Preview" class="img-thumbnail mt-2" style="max-width: 150px; height: 70px;">
+          
+        </div> -->
+      </div>
+
+      <!-- Course -->
+      <div class="row align-items-center mb-3">
+        <div class="col-2">
+          <label for="course" class="col-form-label">Course:</label>
+        </div>
+        <div class="col-9">
+          <input type="text"  value="<%=student.course%>" id="course" class="form-control" placeholder="ex-BCA" disabled>
+        </div>
+      </div>
+
+      <!-- Semester -->
+      <div class="row align-items-center mb-3">
+        <div class="col-2">
+          <label for="semester" class="col-form-label">Semester:</label>
+        </div>
+        <div class="col-9">
+          <input type="number" max="8" min="1"  value="<%=student.semester%>" id="semester" class="form-control" placeholder="ex-4" disabled>
+        </div>
+      </div>
+
+      <!-- Fees -->
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-2">
+          <label for="fees" class="col-form-label">Tution Fees:</label>
+        </div>
+        <div class="col-9">
+          <input type="number" value="<%=student.default_fees%>" id="fees" class="form-control" placeholder="ex-40000" disabled>
+        </div>
+      </div>
+
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-2">
+          <label for="fees" class="col-form-label">Remaining Fees:</label>
+        </div>
+        <div class="col-9">
+          <input type="number" value="<%=student.fees%>" id="fees" class="form-control" placeholder="ex-40000" disabled>
+        </div>
+      </div>
+      
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-2">
+          <label for="fees" class="col-form-label">Submit Fees:</label>
+        </div>
+        <div class="col-9">
+          <input type="number" name="addfees" id="fees" class="form-control"  required>
+        </div>
+      </div>
+
+      <!-- Submit -->
+       <div class="row">
+      <div class="col-md-6">
+        <button class="btn btn-success">Submit</button>
+      </div>
+      </div> 
+      
+    </form>
+   
+  </div>
+</div>
+
+    </div>
+
+<div class="card p-3 mt-3" style="width: 25rem; height:300px;"> 
+  <h5 class="mb-3">Search Student</h5>
+  <form action="/student/feesForm" method="get" >
+    <div class="form-group mb-2">
+      <input type="text" name="name" class="form-control" value="<%=student.name%>" >
+    </div>
+    <div class="form-group mb-2">
+      <input type="text" name="father_name" class="form-control" value="<%=student.father_name%>">
+    </div>
+    <div class="form-group mb-2">
+      <input type="text" name="course" class="form-control" value="<%=student.course%>">
+    </div>
+    <div class="form-group mb-3">
+      <input type="number" name="semester" class="form-control" value="<%=student.semester%>">
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Search</button>
+  </form>
+  
+</div>
+</div>
+
+

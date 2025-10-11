@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College ERP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/rating.css">
+</head>
+<body>
+<%if(success&&success.length){%>
+<div class="alert alert-success alert-dismissible fade show col-6 offset-3 flash" role="alert">
+  <%=success%>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<%}%>
+
+<%if(error&&error.length){%>
+<div class="alert alert-danger alert-dismissible fade show col-6 offset-3 flash" role="alert">
+  <%=error%>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<%}%>
+<style>
+  body {
+      background:#ccc;
+  }
+   @media  (min-width:200px) and (max-width: 450px) {
+  body {
+      background:#ccc;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+    }
+  }
+</style>
+      <div class="card shadow-lg rounded-4 border-0 student-login" >
+        <div class="card-body p-4">
+          <h3 class="text-center mb-4 fw-bold">College/Admin Login</h3>
+
+          <form method="POST" action="/login" novalidate>
+            <!-- Email / Username -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="email"
+                name="username"
+                placeholder="Enter your username"
+                required
+              />
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+              />
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 mt-2">
+              Login
+            </button>
+          </form>
+          <p class="text-center mt-3">
+            Don't have an account? 
+            <a href="/signup" class="text-decoration-none">Sign Up</a>
+          </p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script> 
+    <script src="/js/script.js"></script>
+</body>
+</html>

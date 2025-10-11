@@ -1,0 +1,135 @@
+<% layout ("/layouts/boilerplate.ejs") %>
+
+
+<div class="row">
+  <h3 >Edit Student Information:</h3>
+  <div class="col-12 offset-1 mt-3 mb-3">
+    <form novalidate class="needs-validation" method="post" action="/student/<%=student._id%>?_method=PUT"  enctype="multipart/form-data">
+
+      <div class="row g-3 align-items-start mb-3">
+        <div class="col-md-7">
+          <!-- Registration No -->
+          <div class="row align-items-center mb-3">
+            <div class="col-2">
+              <label for="reg-no" class="col-form-label">Registration No:</label>
+            </div>
+            <div class="col-9">
+              <input type="text" name="student[registration_no]" value="<%=student.registration_no%>" id="reg-no" class="form-control"  required>
+            </div>
+          </div>
+
+          <!-- Name -->
+          <div class="row align-items-center mb-3">
+            <div class="col-2">
+              <label for="name" class="col-form-label">Name:</label>
+            </div>
+            <div class="col-9">
+              <input type="text" name="student[name]" value="<%=student.name%>" id="name" class="form-control"  required>
+            </div>
+          </div>
+
+          <!-- Father's Name -->
+          <div class="row align-items-center mb-3">
+            <div class="col-2">
+              <label for="fa-name" class="col-form-label">Father's Name:</label>
+            </div>
+            <div class="col-9">
+              <input type="text" name="student[father_name]" value="<%=student.father_name%>" id="fa-name" class="form-control"  required>
+            </div>
+          </div>
+        </div>
+
+        <!-- 📸 Photo Upload Section (3-row height) -->
+        <div class="col-md-4 text-center photo-box">
+          <label for="photo" class="form-label fw-bold">Upload Photo:</label>
+          <input type="file" name="student[image]" id="photo" class="form-control mb-2"  >
+          <img id="preview" src="<%=student.image.url%>" alt="Photo Preview" class="img-thumbnail mt-2" style="width: 150px; height: 150px;">
+        </div>
+      </div>
+
+      <!-- Mother's Name -->
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-1">
+          <label for="ma-name" class="col-form-label">Mother's Name:</label>
+        </div>
+        <div class="col-9">
+          <input type="text" name="student[mother_name]" value="<%=student.mother_name%>" id="ma-name" class="form-control" required>
+        </div>
+      </div>
+
+      <!-- Course -->
+      <div class="row align-items-center mb-3">
+        <div class="col-1">
+          <label for="course" class="col-form-label">Course:</label>
+        </div>
+        <div class="col-9">
+          <input type="text" name="student[course]" value="<%=student.course%>" id="course" class="form-control"  required>
+        </div>
+      </div>
+
+      <!-- Semester -->
+      <div class="row align-items-center mb-3">
+        <div class="col-1">
+          <label for="semester" class="col-form-label">Semester:</label>
+        </div>
+        <div class="col-9">
+          <input type="number" max="8" min="1" name="student[semester]" value="<%=student.semester%>" id="semester" class="form-control"  required>
+        </div>
+      </div>
+
+      <!-- Fees -->
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-1">
+          <label for="fees" class="col-form-label">Fees:</label>
+        </div>
+        <div class="col-9">
+          <input type="number" name="student[default_fees]" value="<%=student.default_fees%>" id="fees" class="form-control"  required>
+        </div>
+      </div>
+
+      <!-- E-mail -->
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-1">
+          <label for="e-mail" class="col-form-label">E-mail:</label>
+        </div>
+        <div class="col-9">
+          <input type="email" name="student[email]" value="<%=student.email%>" id="e-mail" class="form-control"  required>
+        </div>
+      </div>
+
+      <div class="row align-items-center mb-3">
+        <div class="col-1">
+          <label for="college" class="col-form-label">College:</label>
+        </div>
+        <div class="col-9">
+          <input type="text" name="student[college]" value="<%=student.college%>" id="colleg" class="form-control"  required>
+        </div>
+      </div>
+
+      <div class="row align-items-center mb-3">
+        <div class="col-1">
+          <label for="univer" class="col-form-label">University:</label>
+        </div>
+        <div class="col-9">
+          <input type="text" name="student[university]" value="<%=student.university%>" id="univer" class="form-control" required>
+        </div>
+      </div>
+
+      <div class="row align-items-center mb-3">
+        <div class="col-1">
+          <label for="address" class="col-form-label">Address:</label>
+        </div>
+        <div class="col-9">
+          <input type="text" name="student[address]" value="<%=student.address%>" id="address" class="form-control"  required>
+        </div>
+      </div>
+
+      <!-- Submit -->
+       <div class="row">
+      <div class="col-md-6">
+        <button class="btn btn-primary">Edit</button>
+      </div>
+      </div>
+    </form>
+  </div>
+</div>

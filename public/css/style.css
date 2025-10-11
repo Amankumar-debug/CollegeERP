@@ -1,0 +1,30 @@
+body{
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.student-login{
+    width: 500px;
+    margin-left: 33rem;
+     margin-top: 7rem;
+}
+
+@media  (min-width:200px) and (max-width: 450px) {
+     .filters {
+    display: flex;
+    flex-wrap: nowrap;              /* keep in one row */
+    overflow-x: auto;               /* enable scroll */
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding: 8px 12px;
+    scrollbar-width: none;          /* Firefox hide */
+  }
+  .filter{
+    margin-left: 20px;
+  }
+  .card{
+    margin-left: 3rem;
+  }
+  
+}

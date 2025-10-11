@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College ERP</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background:#ccc;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+    }
+    .container-box {
+      background: #ffffff;
+      color: #000;
+      border-radius: 15px;
+      padding: 40px;
+      text-align: center;
+      width: 600px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 0.6s ease-in-out;
+    }
+    .container-box img {
+      width: 80px;
+      margin-bottom: 10px;
+    }
+    h4 {
+      color: #002e5b;
+      margin-bottom: 25px;
+      font-weight: bold;
+    }
+    .btn-custom {
+      background-color: #004a99;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    .btn-custom:hover {
+      background-color: #005fcc;
+      transform: translateY(-2px);
+    }
+    .footer {
+      font-size: 13px;
+      color: #ccc;
+      margin-top: 20px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @media  (min-width:200px) and (max-width: 450px) {
+      .container-box{
+        margin-left: 6px;
+        margin-right: 6px;
+
+      }
+    
+      .btn-custom:hover {
+      background-color: #005fcc;
+      transform: translateY(-2px);
+    }
+    }
+  </style>
+</head>
+<body>
+  <div class="container-box">
+    <img src="https://media.licdn.com/dms/image/v2/D560BAQGvwIfNaRFoeQ/company-logo_200_200/company-logo_200_200/0/1722303122567/rmpssu_aligarh_logo?e=2147483647&v=beta&t=GOjxmnqM5oPHHreken0GPdI06vBpk_ZVvUCvM23LsE0" alt="University Logo">
+    <h4>Raja Mahendra Pratap Singh State University</h4>
+    <p class="text-muted">Select Login Type</p>
+
+    <a href="/student/login" class="btn btn-custom">🎓 Student Login</a>
+    <a href="/college/login" class="btn btn-custom">🏛️ College / Admin Login</a>
+
+    <div class="footer">
+      © 2025 Raja Mahendra Pratap Singh State University
+    </div>
+  </div>
+</body>
+</html>

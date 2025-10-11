@@ -1,0 +1,42 @@
+<% layout ("/layouts/boilerplate.ejs") %>
+<style>
+   .student-image img{
+    height: 200px;
+    width: 180px;
+   }
+   .student-image{
+    text-align: center;
+   }
+   .buttons{
+    display: flex;
+    justify-content: space-around;
+   }
+</style>
+
+<div class="card offset-3 mb-3 mt-3" style=" width: 50%;height:auto;">
+    <div class="student-image mt-3 mb-3">
+  <img src="<%=student.image.url%>" class="card-img-top " alt="student-image" >
+  </div>
+  <div class="card-body">
+    <p class="card-text">Registration No : <b><%= student.registration_no %></b></p>
+    <p class="card-text"> Name : <b><%= student.name %></b></p>
+    <p class="card-text"> Father's Name :  <b><%= student.father_name %></b></p>
+    <p class="card-text">Mother's Name : <b><%= student.mother_name %></b> </p>
+    <p class="card-text">Course :  <b><%= student.course %></b></p>
+    <p class="card-text">Semester :  <b><%= student.semester %></b></p>
+    <p class="card-text">Remaining Fees : <b><%= student.fees %></b> </p>
+    <p class="card-text">Fees :  <b><%= student.default_fees %></b></p>
+    <p class="card-text">E-mail : <b><%= student.email %></b> </p>
+    <p class="card-text">College :  <b><%= student.college %></b></p>
+    <p class="card-text">University :  <b><%= student.university %></b></p>
+    <p class="card-text">Address : <b><%= student.address %></b> </p>
+  </div>
+  <div class="buttons mb-3">
+        <form method="get" action="/student/<%=student._id%>/edit">
+          <button class="btn btn-primary">Edit</button>
+        </form>
+        <form method="post" action="/student/<%=student._id%>?_method=DELETE ">
+          <button class="btn btn-danger" style="margin-left: 26rem;">Delete</button>
+        </form>
+        </div>
+</div>

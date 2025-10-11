@@ -1,0 +1,75 @@
+<% layout ("/layouts/boilerplate.ejs") %>
+<style>
+    .student-title{
+      display: flex;
+      justify-content: space-between;
+    }
+    .filters{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .filter{
+      text-decoration: none;
+      color:black;
+      font-weight: 500;
+      font-size: 20px;
+     
+    }
+</style>
+
+
+
+<div class="filters">
+<a href="/staff/search?course=BCA" class="filter">
+  <p>BCA</p>
+</a>
+<a href="/staff/search?course=B.Sc" class="filter">
+  <p>B.Sc</p>
+</a>
+<a href="/staff/search?course=B.Ed" class="filter">
+  <p>B.Ed</p>
+</a>
+<a href="/staff/search?course=BA" class="filter">
+  <p>BA</p>
+</a>
+<a href="/staff/search?course=BBA" class="filter">
+  <p>BBA</p>
+<a href="/staff/search?course=B.Com" class="filter">
+  <p>B.Com</p>
+</a>
+<a href="/staff/search?course=B.Com(Honours)" class="filter">
+  <p>B.Com(Honours)</p>
+</a>
+<a href="/staff/search?course=B.Com(Biotechnology)" class="filter">
+  <p>B.Sc(Biotechnology)</p>
+</a>
+<a href="/staff/search?course=B.Sc(Mathematics)" class="filter">
+  <p>B.Sc(Mathematics)</p>
+</a>
+<a href="/staff/search?course=B.Sc(Microbiology)" class="filter">
+  <p>B.Sc(Microbiology)</p>
+</a>
+</div>
+
+<div class="row row-cols-2 row-cols-md-3 row-cols-sm-2  mt-3 ">
+  <% for(staff of allStaff){%>
+    <%if(currUser && currUser._id.equals(staff.owner._id)){%>
+      <div class="card mb-3" style="width: 20rem; margin-right: 6rem;">
+       <img src="<%=staff.image.url%>" class="card-img-top" alt="...">
+       <div class="card-body">
+        <div class="student-title">
+          <h5 class="card-title"><%=staff.name%></h5>
+          <h5 class="card-title"><%=staff.department%></h5>
+        </div>
+       <div class="mt-3" style="display: flex; justify-content: space-between;">
+        <a href="/staff/<%=staff._id%>" class="btn btn-primary">Edit</a>
+        <form method="post" action="/staff/<%=staff._id%>?_method=DELETE">
+            <button class="btn btn-danger">Delete</button>
+        </form>
+      </div>  
+     </div>
+    </div>
+    <%}%>
+  <%}%>
+</div>
