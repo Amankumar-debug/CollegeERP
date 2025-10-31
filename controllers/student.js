@@ -138,11 +138,11 @@ module.exports.addFees=async(req,res)=>{
 
 module.exports.faculty=async(req,res)=>{
      let allStaff=await Staff.find();
-     res.render("./student/faculty",{allStaff});
+     res.render("student/faculty.ejs",{allStaff});
 }
 
 module.exports.result=async(req,res)=>{
-    res.render("./student/result.ejs");
+    res.render("student/result.ejs");
 }
 
 module.exports.destroyStudent=async(req,res)=>{
